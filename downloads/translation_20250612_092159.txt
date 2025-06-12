@@ -1,0 +1,8 @@
+Original English:
+My name is bert and i love cheeseburgers
+
+Translated Spanish:
+Mi nombre es Bert y me encantan las hamburguesas con queso.
+
+Final English (after editing):
+My name is Bert and I love cheeseburgers.

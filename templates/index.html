@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bilingual Translator</title>
+</head>
+<body>
+    <h1>English to Spanish Translator</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <textarea name="english" rows="4" cols="60" placeholder="Enter English text...">{{ original_english }}</textarea><br><br>
+        <input type="file" name="files" accept=".txt,.docx,.pdf" multiple><br><br>
+        <button type="submit">Translate to Spanish</button>
+    </form>
+
+    {% if translated_spanish %}
+        <h2>Spanish Translation:</h2>
+        <form method="POST">
+            <input type="hidden" name="original_english" value="{{ original_english }}">
+            <textarea name="spanish" rows="4" cols="60">{{ translated_spanish }}</textarea><br><br>
+            <button type="submit">Translate back to English</button>
+        </form>
+    {% endif %}
+
+    {% if edited_english %}
+        <h2>Final English (after editing):</h2>
+        <p>{{ edited_english }}</p>
+        {% if download_file %}
+            <a href="{{ url_for('download', filename=download_file.split('/')[-1]) }}">
+                <button>Download Translation File</button>
+            </a>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
